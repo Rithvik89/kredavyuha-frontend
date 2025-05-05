@@ -42,7 +42,12 @@ export const LeagueCards: React.FC<LeagueCardsProps> = ({ data }) => {
                 }}
             >
                 {/* Top-right ribbon */}
-                {(league_status === 'not started' || league_status === 'close' || (registered >= capacity && league_status === 'open')) && (
+                {(
+                  league_status === 'not started' ||
+                  league_status === 'close' ||
+                  (registered >= capacity && league_status === 'open') ||
+                  (league_status === 'open' && registered < capacity)
+                ) && (
                   <div style={{
                     position: 'absolute',
                     top: 12,
@@ -93,10 +98,24 @@ export const LeagueCards: React.FC<LeagueCardsProps> = ({ data }) => {
                         boxShadow: 'none',
                         border: '1.5px solid #b0b8c1',
                         letterSpacing: 1,
-                        textTransform: 'uppercase',
                         textAlign: 'center',
                         borderRadius: 4,
                       }}>House Full</span>
+                    )}
+                    {league_status === 'open' && registered < capacity && (
+                      <span style={{
+                        display: 'block',
+                        background: 'transparent',
+                        color: '#00e599',
+                        fontWeight: 700,
+                        fontSize: 11,
+                        padding: '4px 0',
+                        boxShadow: 'none',
+                        border: '1.5px solid #00e599',
+                        letterSpacing: 1,
+                        textAlign: 'center',
+                        borderRadius: 4,
+                      }}>Active</span>
                     )}
                   </div>
                 )}
