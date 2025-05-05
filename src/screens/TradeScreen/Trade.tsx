@@ -85,22 +85,35 @@ export const TradeScreen: React.FC =  observer(() => {
 
     if (tradeStore.isLoading === true) {
         return (
-            <Spinner/>
+            <div style={{ 
+                display: 'flex', 
+                justifyContent: 'center', 
+                alignItems: 'center', 
+                minHeight: '100vh',
+                background: 'transparent'
+            }}>
+                <Spinner/>
+            </div>
         );
     }
     else {
         return (
-
-            <div className="container p-4">
-                {/* <div className="flex flex-wrap gap-2 justify-center items-center">
-                    <Slider />
-                </div> */}
-                <div className="grid grid-cols-2 gap-4">
-                {entities && entities
-                    .filter(card => selectedTeam === null || card.team === selectedTeam)
-                    .map((card, index) => (
-                    <CardLayout key={index} {...card} />
-                    ))}
+            <div style={{ 
+                padding: '1rem',
+                background: 'transparent',
+                minHeight: '100vh'
+            }}>
+                <div style={{ 
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(2, 1fr)',
+                    gap: '1rem',
+                    padding: '0.5rem'
+                }}>
+                    {entities && entities
+                        .filter(card => selectedTeam === null || card.team === selectedTeam)
+                        .map((card, index) => (
+                            <CardLayout key={index} {...card} />
+                        ))}
                 </div>
             </div>
         );

@@ -10,6 +10,7 @@ export class AppStore {
   deviceWidth: number = 0;
   isLoggedIn: boolean = false;
   isModalOpened: boolean = false;
+  isNavBarOpened: boolean = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -59,6 +60,11 @@ export class AppStore {
   @action
   setIsLoggedIn(state: boolean){
     this.isLoggedIn = state
+  }
+
+  @action
+  setIsNavBarOpened(state: boolean) {
+    this.isNavBarOpened = state;
   }
 }
 

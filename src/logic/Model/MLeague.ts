@@ -9,4 +9,4 @@ export interface MLeague     {
     registered: number;
     users_registered: string;
     is_registered: boolean;
-}
+}   

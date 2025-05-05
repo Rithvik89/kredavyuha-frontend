@@ -1,9 +1,11 @@
-
 import './playbook.css';
+import { useStores } from "../../logic/Providers/StoreProviders";
+import { observer } from "mobx-react-lite";
 
-const Playbook = () => {
+const Playbook = observer(() => {
+    const { appStore } = useStores();
     return (
-        <div className="container">
+        <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh' }}>
             <h1><strong>Kridavyuha Contest Playbook</strong></h1>
             
             <h2><u>Joining a Contest</u></h2>
@@ -31,7 +33,7 @@ const Playbook = () => {
             <h3><u>Purchase Rate Factor</u></h3>
             <ul>
                 <li>Kridavyuha batches transactions per player in a contest within small time intervals.</li>
-                <li>Net shares purchased per batch influence the player’s price.</li>
+                <li>Net shares purchased per batch influence the player's price.</li>
                 <li>Ensures market sentiment affects pricing independently of in-game events.</li>
             </ul>
             
@@ -49,8 +51,22 @@ const Playbook = () => {
             </ul>
             
             <p>Stay engaged, analyze the market, and make your moves wisely to maximize your contest earnings!</p>
+            {appStore.isNavBarOpened && (
+                <div style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100vw',
+                    height: '100vh',
+                    zIndex: 9998,
+                    background: 'rgba(10, 15, 26, 0.55)',
+                    backdropFilter: 'blur(10px)',
+                    pointerEvents: 'auto',
+                    transition: 'all 0.3s',
+                }} />
+            )}
         </div>
     );
-};
+});
 
 export default Playbook;

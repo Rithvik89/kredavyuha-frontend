@@ -16,7 +16,7 @@ const getInitials = (name: string | undefined) => {
 
 export const UserProfile: React.FC = observer(() => {
 
-  const {profileStore} = useStores();
+  const {profileStore, appStore} = useStores();
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -29,7 +29,7 @@ export const UserProfile: React.FC = observer(() => {
     return <Spinner/>
   } else {
     return (
-      <>
+      <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh' }}>
         <Card shadow="sm" padding="lg" radius="md" withBorder style={{ width: '100%', marginTop: '10px' }}>
             <Stack gap={8} align="center">
             <Avatar size={50} radius="xl" color='blue'>{getInitials(profileStore.user?.profile?.user_name)}</Avatar>
@@ -57,8 +57,21 @@ export const UserProfile: React.FC = observer(() => {
             <ProfileTabs />
             </div>
         </Card>
-       
-      </>
+        {appStore.isNavBarOpened && (
+          <div style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            zIndex: 9998,
+            background: 'rgba(10, 15, 26, 0.55)',
+            backdropFilter: 'blur(10px)',
+            pointerEvents: 'auto',
+            transition: 'all 0.3s',
+          }} />
+        )}
+      </div>
     );
   }
 

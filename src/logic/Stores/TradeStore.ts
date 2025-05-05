@@ -73,6 +73,7 @@ export class TradeStore{
         }
         console.log(toJS(this.getPoints()));
         
+        //TODO: This is taking more time.... FIX this 
         const trades = await this.tradeRepo.getEntities(this.token, league_id);
         this.setEntities(trades);
         const transactions = await this.tradeRepo.getTransactions(this.token, league_id);

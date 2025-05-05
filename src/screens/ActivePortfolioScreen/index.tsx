@@ -11,7 +11,7 @@ import { observer } from "mobx-react-lite";
 
 export const ActivePortoflioScreen: React.FC = observer(() => {
     
-   const {portfolioStore} = useStores()
+   const {portfolioStore, appStore} = useStores()
    const navigate = useNavigate();
    const searchParams = new URLSearchParams(location.search);
 
@@ -80,11 +80,25 @@ export const ActivePortoflioScreen: React.FC = observer(() => {
                     <Loader size={"sm"} />
                 </section>
             ) : 
-         (<div>
+         (<div style={{ position: 'relative', zIndex: 1, minHeight: '100vh' }}>
              <Text style={{ textAlign: 'center', margin: '20px 0', fontWeight: 'bold' }}>Active Portfolios</Text>
           <Accordion defaultValue={items.length > 0 ? items[0].key : undefined}>
             {items}
           </Accordion>
+          {appStore.isNavBarOpened && (
+            <div style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100vw',
+              height: '100vh',
+              zIndex: 9998,
+              background: 'rgba(10, 15, 26, 0.55)',
+              backdropFilter: 'blur(10px)',
+              pointerEvents: 'auto',
+              transition: 'all 0.3s',
+            }} />
+          )}
          </div>
         )
 )});

@@ -9,7 +9,7 @@ import { PortfolioScreen } from './screens/PortfolioScreen';
 import { useStores } from './logic/Providers/StoreProviders';
 import { Observer } from 'mobx-react-lite';
 import { styled } from 'styled-components';
-import TopBar from './components/TopBar.tsx';
+import TopBar from './components/TopBar';
 import BottomBar from './components/BottomBar';
 import { WIPScreen } from './screens/WIPScreen';
 import { ProtectedRoutes } from './ProtectedRoute';
@@ -28,6 +28,8 @@ const SApp = styled.section`
   width: 100%;
   max-width: 600px;
   overflow: auto;
+  padding-bottom: 64px;
+  background: #181c23;
   ::-webkit-scrollbar {
     display: none;
   }

@@ -8,7 +8,7 @@ import { Spinner } from '../../components/Spinner';
 
 export const LeaderBoardScreen = observer(() => {
 
-  const {leaderboardStore} = useStores()
+  const {leaderboardStore, appStore} = useStores()
   const [searchParams] = useSearchParams();
   const leagueId:string = searchParams.get('leagueId') || ''; 
   const matchId:string = searchParams.get('matchId') || '';
@@ -44,12 +44,26 @@ export const LeaderBoardScreen = observer(() => {
   );
 
     return (
-        <div style={{ marginTop: '10px', paddingLeft: '20px', paddingRight: '15px' }}>
+        <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh' }}>
           
             <Table striped highlightOnHover withColumnBorders>
             <Table.Thead>{ths}</Table.Thead>
             <Table.Tbody>{rows}</Table.Tbody>
             </Table>
+            {appStore.isNavBarOpened && (
+                <div style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100vw',
+                    height: '100vh',
+                    zIndex: 9998,
+                    background: 'rgba(10, 15, 26, 0.55)',
+                    backdropFilter: 'blur(10px)',
+                    pointerEvents: 'auto',
+                    transition: 'all 0.3s',
+                }} />
+            )}
         </div>
       );
 });

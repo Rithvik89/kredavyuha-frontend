@@ -34,29 +34,53 @@ export const CardLayout: React.FC<CardProps> = ({ player_id, player_name, base_p
     return (
         <div >
             <div>
-            <Card shadow="sm" padding="sm" radius="md" withBorder   style={{ height: '180px'}} onClick={() => {
-                navigate(`/trade/graph?player_id=${player_id}&league_id=${league_id}&match_id=${tradeStore.match_id}`);
-                }}>
+            <Card 
+                shadow="sm" 
+                padding="sm" 
+                radius="md" 
+                withBorder 
+                style={{ 
+                    height: '180px',
+                    background: '#181c23',
+                    border: '1px solid #00e59922',
+                    color: '#fff'
+                }} 
+                onClick={() => {
+                    navigate(`/trade/graph?player_id=${player_id}&league_id=${league_id}&match_id=${tradeStore.match_id}`);
+                }}
+            >
                
                 <Stack justify="center" align="center" mt="md" mb="xs">
                     <Avatar src={`src/assets/${teamNameUpperCase}/${playerNameWithoutSpace}.png`} alt="it's me" size="lg" />
-                    <Text fw={500}>{player_name}</Text>
+                    <Text fw={500} style={{ color: '#fff' }}>{player_name}</Text>
                 </Stack>
 
-                <Text size="sm" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <strong>{cur_price}</strong>
-                <div style={{ marginLeft: '5px' }}>
-                    {
-                    base_price < cur_price ? (
-                        <FaArrowTrendUp style={{ color: 'green' }} />
-                    ) : base_price > cur_price ? (
-                        <FaArrowTrendDown style={{ color: 'red' }} />
-                    ) : (
-                        <PiHourglassLow style={{ color: 'black' }} />
-                    )
-                    }
-                </div>
-                <Text size="xs" style={{ marginLeft: '20px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{shares} shares</Text>
+                <Text size="sm" style={{ 
+                    textAlign: 'center', 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
+                    color: '#b0b8c1'
+                }}>
+                    <strong style={{ color: '#00e599' }}>₹{cur_price}</strong>
+                    <div style={{ marginLeft: '5px' }}>
+                        {
+                        base_price < cur_price ? (
+                            <FaArrowTrendUp style={{ color: '#00e599' }} />
+                        ) : base_price > cur_price ? (
+                            <FaArrowTrendDown style={{ color: '#ff4d4f' }} />
+                        ) : (
+                            <PiHourglassLow style={{ color: '#b0b8c1' }} />
+                        )
+                        }
+                    </div>
+                    <Text size="xs" style={{ 
+                        marginLeft: '20px', 
+                        whiteSpace: 'nowrap', 
+                        overflow: 'hidden', 
+                        textOverflow: 'ellipsis',
+                        color: '#b0b8c1'
+                    }}>{shares} shares</Text>
                 </Text>
                 <div style={{ display: "flex" }}>
                 </div>

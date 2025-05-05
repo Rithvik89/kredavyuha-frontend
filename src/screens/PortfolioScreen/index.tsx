@@ -58,7 +58,7 @@ export const PortfolioScreen: React.FC = observer(() => {
     const searchParams = new URLSearchParams(location.search);
     const leagueId = searchParams.get('leagueId') || '';
     const matchId:string = searchParams.get('matchId') || '';
-    const {portfolioStore} = useStores();   
+    const {portfolioStore, appStore} = useStores();   
     const {portfolio} = portfolioStore;
     const navigate = useNavigate();
 
@@ -95,26 +95,42 @@ export const PortfolioScreen: React.FC = observer(() => {
 
 
     return (
-        <div className="container p-4 ">
-            {portfolio?.players ? (
-                    <div >
-                        <div style={{ marginBottom: '5px' }}>
-                               <Summary invested={invested} returns={returns} balance={balance}/>
-                         </div>
-                        {portfolio.players
-                            .filter(player => player.shares > 0)
-                            .map(player => (
-                                <div onClick={()=> navigate(`/trade/graph?player_id=${player.player_id}&league_id=${leagueId}&match_id=${matchId}`)}>
-                                    <PortfolioCard key={player.player_id} player={player} />
-                                </div>
-                            ))}
-                    </div>
+        <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh' }}>
+            <div className="container p-4 ">
+                {portfolio?.players ? (
+                        <div >
+                            <div style={{ marginBottom: '5px' }}>
+                                   <Summary invested={invested} returns={returns} balance={balance}/>
+                             </div>
+                            {portfolio.players
+                                .filter(player => player.shares > 0)
+                                .map(player => (
+                                    <div onClick={()=> navigate(`/trade/graph?player_id=${player.player_id}&league_id=${leagueId}&match_id=${matchId}`)}>
+                                        <PortfolioCard key={player.player_id} player={player} />
+                                    </div>
+                                ))}
+                        </div>
 
-            ) : (
-                <p>No Stocks :(</p>
+                ) : (
+                    <p>No Stocks :(</p>
+                )}
+               
+               
+            </div>
+            {appStore.isNavBarOpened && (
+                <div style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    width: '100vw',
+                    height: '100vh',
+                    zIndex: 9998,
+                    background: 'rgba(10, 15, 26, 0.55)',
+                    backdropFilter: 'blur(10px)',
+                    pointerEvents: 'auto',
+                    transition: 'all 0.3s',
+                }} />
             )}
-           
-           
         </div>
     );
     }

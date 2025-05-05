@@ -1,4 +1,5 @@
 import { Accordion } from "@mantine/core";
+import { useStores } from "../../logic/Providers/StoreProviders";
 
 const groceries = [
     {
@@ -30,27 +31,29 @@ const groceries = [
       ],
     },
   ];
-const RulesScreen=()=>{
-    const items = groceries.map((item) => (
-      <Accordion.Item key={item.value} value={item.value}>
-        <Accordion.Control>{item.value}</Accordion.Control>
-        <Accordion.Panel>
-        <div style={{ textAlign: 'center' }}>
-          {item.rules.map((rule, index) => (
-          <p key={index}>
-            <strong>{rule.rule}:</strong> {rule.points} points
-          </p>
-          ))}
-        </div>
-        </Accordion.Panel>
-      </Accordion.Item>
-    ));
-    
-      return (
-        <Accordion defaultValue="Batting">
-          {items}
-        </Accordion>
-      );
-}
 
-export default RulesScreen
+const RulesScreen = () => {
+  const { appStore } = useStores();
+  const items = groceries.map((item) => (
+    <Accordion.Item key={item.value} value={item.value}>
+      <Accordion.Control>{item.value}</Accordion.Control>
+      <Accordion.Panel>
+      <div style={{ textAlign: 'center' }}>
+        {item.rules.map((rule, index) => (
+        <p key={index}>
+          <strong>{rule.rule}:</strong> {rule.points} points
+        </p>
+        ))}
+      </div>
+      </Accordion.Panel>
+    </Accordion.Item>
+  ));
+  
+  return (
+    <Accordion defaultValue="Batting">
+      {items}
+    </Accordion>
+  );
+};
+
+export default RulesScreen;
