@@ -87,7 +87,7 @@ const TopBarDesktop: React.FC = () => {
         }}
       >
         <STopBar 
-          onClick={() => navigate('/home')}
+          onClick={() => navigate('/')}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -101,14 +101,14 @@ const TopBarDesktop: React.FC = () => {
           <Text size="sm">Leagues</Text>
         </STopBar>
         <STopBar 
-          onClick={() => navigate('/portfolio')}
+          onClick={() => navigate('/portfolios')}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           <Text size="sm">Portfolio</Text>
         </STopBar>
         <STopBar 
-          onClick={() => navigate('/profiles')}
+          onClick={() => navigate('/profile')}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >

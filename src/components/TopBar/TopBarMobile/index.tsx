@@ -52,7 +52,7 @@ export const TopBarMobile: React.FC = observer(() => {
               >
                 <Burger
                   opened={appStore.isNavBarOpened}
-                  color={"#00e599"}
+                  color={"white"}
                   size="sm"
                   style={{
                     display: 'block'
@@ -94,7 +94,7 @@ export const TopBarMobile: React.FC = observer(() => {
                 }}
               >
                 <IoLogOutOutline 
-                  color='#00e599' 
+                  color='white' 
                   size={22} 
                   onClick={handleLogout}
                 />

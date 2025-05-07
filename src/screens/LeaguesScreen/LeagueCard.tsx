@@ -34,7 +34,7 @@ export const LeagueCards: React.FC<LeagueCardsProps> = ({ data }) => {
                 radius="lg"
                 style={{
                     background: 'linear-gradient(135deg, #20232a 60%, #181c23 100%)',
-                    border: '1.5px solid #00e599',
+                    // border: '1px solid #00e599',
                     boxShadow: '0 2px 16px 0 #00e59922',
                     color: '#fff',
                     minWidth: 0,
@@ -61,12 +61,12 @@ export const LeagueCards: React.FC<LeagueCardsProps> = ({ data }) => {
                       <span style={{
                         display: 'block',
                         background: 'transparent',
-                        color: '#ffe066',
+                        color: '#00e599',
                         fontWeight: 500,
                         fontSize: 9,
                         padding: '4px 0',
                         boxShadow: 'none',
-                        border: '1.5px solid #ffe066',
+                        border: '1.5px solid #00e599',
                         letterSpacing: 1,
                         textAlign: 'center',
                         borderRadius: 4,
@@ -76,12 +76,12 @@ export const LeagueCards: React.FC<LeagueCardsProps> = ({ data }) => {
                       <span style={{
                         display: 'block',
                         background: 'transparent',
-                        color: '#ff4d4f',
+                        color: '#00e599',
                         fontWeight: 500,
                         fontSize: 9,
                         padding: '4px 0',
                         boxShadow: 'none',
-                        border: '1.5px solid #ff4d4f',
+                        border: '1.5px solid #00e599',
                         letterSpacing: 1,
                         textAlign: 'center',
                         borderRadius: 4,
@@ -108,7 +108,7 @@ export const LeagueCards: React.FC<LeagueCardsProps> = ({ data }) => {
                         background: 'transparent',
                         color: '#00e599',
                         fontWeight: 700,
-                        fontSize: 11,
+                        fontSize: 10,
                         padding: '4px 0',
                         boxShadow: 'none',
                         border: '1.5px solid #00e599',
@@ -123,14 +123,14 @@ export const LeagueCards: React.FC<LeagueCardsProps> = ({ data }) => {
                 {/* Header */}
                 <Group justify="space-between" align="center" mb="xs" wrap="nowrap">
                     <Text fw={700} size="lg" style={{ color: '#fff', letterSpacing: 0.5, flex: 1 }}>
-                        {team_a} <span style={{ color: '#00e599' }}>vs</span> {team_b}
+                        {team_a} <span>vs</span> {team_b}
                     </Text>
                 </Group>
 
                 {/* Prize Pool */}
                 <Group mb="xs" align="center" style={{ background: '#232834', borderRadius: 10, padding: '10px 14px' }}>
                     <BsTrophy className="text-[#00e599]" size={20} />
-                    <Text size="md" fw={600} style={{ color: '#00e599', letterSpacing: 0.2 }}>
+                    <Text size="md" fw={600} style={{ letterSpacing: 0.2 }}>
                         Prize Pool: ₹{totalPrize}
                     </Text>
                     <Button
@@ -185,8 +185,8 @@ export const LeagueCards: React.FC<LeagueCardsProps> = ({ data }) => {
 
                 {/* Stats */}
                 <Group mb="md" align="center" style={{ color: '#b0b8c1', fontWeight: 500, fontSize: 15 }}>
-                    <Text size="sm">Entry Fee: <span style={{ color: '#00e599', fontWeight: 600 }}>₹{entry_fee}</span></Text>
-                    <Text size="sm">Players: <span style={{ color: '#00e599', fontWeight: 600 }}>{registered}</span>/{capacity}</Text>
+                    <Text size="sm">Entry Fee: <span >₹{entry_fee}</span></Text>
+                    <Text size="sm">Players: <span >{registered}</span>/{capacity}</Text>
                 </Group>
 
                 {/* Actions */}

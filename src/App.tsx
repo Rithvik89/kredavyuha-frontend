@@ -26,10 +26,7 @@ import { ActivePortoflioScreen } from './screens/ActivePortfolioScreen';
 
 const SApp = styled.section`
   width: 100%;
-  max-width: 600px;
   overflow: auto;
-  padding-bottom: 64px;
-  background: #181c23;
   ::-webkit-scrollbar {
     display: none;
   }
@@ -59,16 +56,21 @@ const App: React.FC = () => {
       {() => {
         const { appStore } = store;
         appStore.Me()
+
+        console.log(appStore.isPhone)
+        console.log("Is Logged In", appStore.isLoggedIn)
         return (
           <Router>
             {/* {appStore.isDesktop && <RightFooterIndex/>} */}
             
             <SApp
               style={{
-                marginBottom: `${appStore.isPhone ? "70px" : "0px"}`
+                paddingBottom: appStore.isPhone ? "64px" : "0px"
               }}
               className={!appStore.isPhone ? "mx-3 " : ""}
             >
+
+
             
             {appStore.isLoggedIn &&<TopBar/>}
             {appStore.isLoggedIn && appStore.isPhone && <BottomBar />}

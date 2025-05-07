@@ -55,6 +55,7 @@ export const TradeScreen: React.FC =  observer(() => {
 
     const { tradeStore } = useStores();
     const {entities} = tradeStore;
+    console.log('Trade Screen - Entities:', entities);
          
     const teams = Array.from(new Set((entities || []).map(card => card.team)));
     const [selectedTeam, setSelectedTeam] = useState<string | null>(null);
@@ -62,6 +63,7 @@ export const TradeScreen: React.FC =  observer(() => {
     useEffect(() => {
         const fetchEntities = async () => {
             await tradeStore.getEntities(leagueId);
+            console.log('After fetch - Entities:', tradeStore.entities);
               tradeStore.setLeagueId(leagueId);
               tradeStore.setMatchId(matchId);
         };
@@ -92,7 +94,7 @@ export const TradeScreen: React.FC =  observer(() => {
                 minHeight: '100vh',
                 background: 'transparent'
             }}>
-                <Spinner/>
+            <Spinner/>
             </div>
         );
     }
@@ -109,11 +111,11 @@ export const TradeScreen: React.FC =  observer(() => {
                     gap: '1rem',
                     padding: '0.5rem'
                 }}>
-                    {entities && entities
-                        .filter(card => selectedTeam === null || card.team === selectedTeam)
-                        .map((card, index) => (
-                            <CardLayout key={index} {...card} />
-                        ))}
+                {entities && entities
+                    .filter(card => selectedTeam === null || card.team === selectedTeam)
+                    .map((card, index) => (
+                    <CardLayout key={index} {...card} />
+                    ))}
                 </div>
             </div>
         );

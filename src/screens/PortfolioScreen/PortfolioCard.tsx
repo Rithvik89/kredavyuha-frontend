@@ -19,7 +19,7 @@ export const PortfolioCard = ({ player }: { player: MStocks }) => {
                 color: '#fff'
             }}
         >
-            {player.shares > 0 && (
+             {player.shares > 0 && (
                 <div style={{ display: 'flex', justifyContent: 'space-between'}}>
                     <div style={{ 
                         display: 'flex', 
@@ -70,21 +70,21 @@ export const PortfolioCard = ({ player }: { player: MStocks }) => {
                         fontSize: '0.9rem', 
                         marginRight: '5px' 
                     }}>
-                        {parseFloat(returns) !== 0 && (
+                    {parseFloat(returns) !== 0 && (
                             <Text style={{ 
                                 marginLeft: '2px', 
                                 fontSize: '0.9rem', 
                                 color: parseFloat(returns) > 0 ? '#00e599' : '#ff4d4f'
                             }}>
                                 ₹{returns}
-                            </Text>
-                        )}
+                        </Text>
+                    )}
                         <Text style={{ 
                             marginRight: '2px', 
                             fontSize: '0.9rem',
                             color: '#b0b8c1'
                         }}>₹{player.cur_price}</Text>
-                    </div>
+                </div>
                 </div>
             )}
         </Card>

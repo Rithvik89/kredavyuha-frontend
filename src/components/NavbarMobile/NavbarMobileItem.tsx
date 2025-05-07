@@ -19,14 +19,14 @@ function NavbarMobileItem(props: NavbarMobileItemProps) {
         <div className="text-xl">
           {props.icon}
         </div>
-        <Text
+    <Text
           className="text-base font-medium"
-          style={{
+      style={{
             color: "inherit",
             letterSpacing: "0.025em"
-          }}
-        >
-          {props.title}
+      }}
+    >
+        {props.title}
         </Text>
       </div>
       {props.badge && (
@@ -35,7 +35,7 @@ function NavbarMobileItem(props: NavbarMobileItemProps) {
           animate={{ scale: 1 }}
           transition={{ type: "spring", stiffness: 500, damping: 30 }}
         >
-          {props.badge}
+      {props.badge}
         </motion.div>
       )}
     </motion.div>

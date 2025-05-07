@@ -14,17 +14,17 @@ export const Summary = ({ invested, returns, balance }: { invested: string|numbe
             <div style={{ marginTop: '1rem', display: 'flex', justifyContent: 'space-around' }}>
                 <div style={{ textAlign: 'left' }}>
                     <Text fw={500} size="md" style={{ color: '#b0b8c1' }}>Invested:</Text>
-                    <Text fw={700} size="md" style={{ color: '#00e599' }}>
+                    <Text fw={600} size="md" style={{ color: 'white' }}>
                         ₹{invested}
                     </Text>
                 </div>
                 <div style={{ textAlign: 'left' }}>
                     <Text fw={500} size="md" style={{ color: '#b0b8c1' }}>Returns:</Text>
-                    <Text fw={700} size="md" style={{ color: '#00e599' }}>₹{returns}</Text>
+                    <Text fw={600} size="md" style={{ color: Number(returns) >= 0 ? '#00e599' : '#ff4d4f' }}>₹{returns}</Text>
                 </div>
                 <div style={{ textAlign: 'left' }}>
                     <Text fw={500} size="md" style={{ color: '#b0b8c1' }}>Balance:</Text>
-                    <Text fw={700} size="md" style={{ color: '#00e599' }}>
+                    <Text fw={600} size="md" style={{ color: 'white' }}>
                         ₹{balance}
                     </Text>
                 </div>

@@ -33,9 +33,9 @@ export const LeaguesScreen = observer(() => {
             >
                 <div className="flex justify-between items-center mb-6">
                     <div className="w-full">
-                        <h1 className="text-3xl md:text-4xl font-bold text-white mb-2 text-center">
+                        {/* <h1 className="text-3xl md:text-4xl font-bold text-white mb-2 text-center">
                             Come Join the fun!
-                        </h1>
+                        </h1> */}
                     </div>
                 </div>
             </motion.div>

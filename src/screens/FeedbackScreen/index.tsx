@@ -7,7 +7,7 @@ const FeedBackScreenIndex = observer(() => {
   const { appStore } = useStores();
 
   return (
-    <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh' }}>
+    <div style={{ position: 'relative', zIndex: 1 }}>
       <FeedbackIndex />
       {appStore.isNavBarOpened && (
         <div style={{
@@ -15,7 +15,6 @@ const FeedBackScreenIndex = observer(() => {
           top: 0,
           left: 0,
           width: '100vw',
-          height: '100vh',
           zIndex: 9998,
           background: 'rgba(10, 15, 26, 0.55)',
           backdropFilter: 'blur(10px)',

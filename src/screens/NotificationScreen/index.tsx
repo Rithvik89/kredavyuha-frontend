@@ -7,10 +7,18 @@ import NotificationTile from "./NotificaitonTile";
 import { Spinner } from "../../components/Spinner";
 
 const SNotificationIndex = styled.section`
-  height: 100%;
-  width: 100%;
+
+  width: 100vw;
   max-width: 600px;
-  border: 0.2px solid #bdbdbda0;
+  margin: 10px auto;
+  background: linear-gradient(135deg, #20232a 60%, #181c23 100%);
+  border-radius: 18px;
+  box-shadow: 0 2px 24px 0 #00e59922;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
 `;
 
 
@@ -41,7 +49,7 @@ const NotificaitonScreen = observer(() => {
     
     <SNotificationIndex>
         {notifications.length === 0 ? (
-        <b className="flex h-[140px] w-full items-center justify-center text-center text-gray-400">
+        <b className="flex h-[140px] w-full items-center justify-center text-center" style={{ color: '#b0b8c1', fontWeight: 500 }}>
             You're all caught up. No Notifications.
           </b>
         ):(

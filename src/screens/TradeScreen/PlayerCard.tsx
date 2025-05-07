@@ -28,7 +28,12 @@ export const CardLayout: React.FC<CardProps> = ({ player_id, player_name, base_p
 
 
     const teamNameUpperCase:string = team.toUpperCase()
-    const playerNameWithoutSpace = player_name.replace(/ /g, "_");
+    const playerNameWithoutSpace = player_name ? player_name.replace(/ /g, "_") : '';
+    const randomLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const getRandomLetters = () => {
+        return randomLetters.charAt(Math.floor(Math.random() * randomLetters.length)) + 
+               randomLetters.charAt(Math.floor(Math.random() * randomLetters.length));
+    };
  
    
     return (
@@ -51,7 +56,24 @@ export const CardLayout: React.FC<CardProps> = ({ player_id, player_name, base_p
             >
                
                 <Stack justify="center" align="center" mt="md" mb="xs">
-                    <Avatar src={`src/assets/${teamNameUpperCase}/${playerNameWithoutSpace}.png`} alt="it's me" size="lg" />
+                    <div
+                      style={{
+                        width: 48,
+                        height: 48,
+                        borderRadius: '50%',
+                        background: 'linear-gradient(135deg, #00e59922 0%, #00e59944 100%)',
+                        border: '1px solid #00e59933',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#00e599',
+                        fontSize: '18px',
+                        fontWeight: 600,
+                        textTransform: 'uppercase'
+                      }}
+                    >
+                      {/* {playerNameWithoutSpace ? playerNameWithoutSpace.slice(0, 2) : getRandomLetters()} */}
+                    </div>
                     <Text fw={500} style={{ color: '#fff' }}>{player_name}</Text>
                 </Stack>
 

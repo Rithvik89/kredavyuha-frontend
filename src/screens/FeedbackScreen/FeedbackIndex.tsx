@@ -15,6 +15,12 @@ import { useStores } from "../../logic/Providers/StoreProviders";
   
   const SFeedback = styled.div`
     width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #20232a 60%, #181c23 100%);
+    padding: 32px 0;
   `;
   
   function FeedbackIndex() {
@@ -35,16 +41,24 @@ import { useStores } from "../../logic/Providers/StoreProviders";
         <Card
           shadow="lg"
           style={{
-            border: "1.5px dashed " + mantineTheme.colors.blue[3]
+            border: "1.5px solid #00e59944",
+            background: 'rgba(24,28,35,0.93)',
+            borderRadius: 16,
+            boxShadow: '0 2px 16px 0 #00e59922',
+            maxWidth: 420,
+            width: '100%',
+            padding: '32px 24px',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
           }}
           className="relative flex flex-col items-center"
         >
-          <Title order={3} size={"md"}>
+          <Title order={3} size={"md"} style={{ color: '#00e599', fontWeight: 700, letterSpacing: 1, marginBottom: 8, textAlign: 'center' }}>
             Help Us Become Better
           </Title>
-          <Text color={"dimmed"} size="sm" className="my-2 text-center">
-            What did you like most about our service? What areas do you think we
-            can improve on for your next visit?
+          <Text style={{ color: '#b0b8c1', fontSize: 16, textAlign: 'center', marginBottom: 18 }}>
+            What did you like most about our service? What areas do you think we can improve on for your next visit?
           </Text>
           <Textarea
             className="mt-2 w-full text-xl"
@@ -58,6 +72,17 @@ import { useStores } from "../../logic/Providers/StoreProviders";
             autosize
             minRows={8}
             maxRows={15}
+            styles={{
+              input: {
+                background: '#181c23',
+                color: '#fff',
+                border: '1.5px solid #232834',
+                borderRadius: 8,
+                fontWeight: 500,
+                fontSize: 16,
+              },
+              placeholder: { color: '#b0b8c1', opacity: 1 },
+            }}
           />
           {/* <FileInput
             className="mt-1 w-full"
@@ -75,30 +100,21 @@ import { useStores } from "../../logic/Providers/StoreProviders";
           <Button
             loading={loading}
             disabled={feedback.content === "" && feedback.image === undefined}
-            variant="light"
+            variant="outline"
             className="mt-4 w-full"
-            // onClick={() => {
-            //   setLoading(true);
-            //   store.miscStore
-            //     .CreateFeedback(feedback.content, feedback.image || undefined)
-            //     .then(() => {
-            //       setLoading(false);
-            //       showNotification({
-            //         title: "Feedback Submitted.",
-            //         message: "Thank you for your valuable feedback.",
-            //         color: "green"
-            //       });
-            //       setFeedback({ content: "", image: null });
-            //     })
-            //     .catch((err) => {
-            //       setLoading(false);
-            //       showNotification({
-            //         title: "Feedback Not Submitted.",
-            //         message: "Something went wrong, please try again.",
-            //         color: "red"
-            //       });
-            //     });
-            // }}
+            style={{
+              color: '#00e599',
+              border: '1.5px solid #00e599',
+              fontWeight: 600,
+              borderRadius: 8,
+              letterSpacing: 1,
+              boxShadow: '0 2px 8px 0 #00e59933',
+              padding: '8px 24px',
+              fontSize: 17,
+              marginTop: 18,
+              background: 'transparent',
+              transition: 'background 0.2s',
+            }}
           >
             Send Feedback
           </Button>

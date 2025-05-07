@@ -13,12 +13,15 @@ export class TradeRepo {
 
     async getEntities(token: string, league_id: string) : Promise<MTradeEntity[]> {
         try {
+          console.log('Fetching entities for league:', league_id);
           const res = await this.rq.Get(`${this.baseUrl}?league_id=${league_id}`, AuthHeaders(token));
           const { body } = await CheckResponse(res);
+          console.log('API Response body:', body);
           const entities = body.data as MTradeEntity[];
+          console.log('Parsed entities:', entities);
           return entities;
         } catch (err: any) {
-            console.log(err);
+            console.log('Error fetching entities:', err);
           throw ThrowFor(err, {
             404: "No such entities exist.",
           });

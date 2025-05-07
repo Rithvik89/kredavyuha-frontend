@@ -87,7 +87,7 @@ function NavBarMobile({ setIsNavBarOpened }: INavBarMobile) {
     <Observer>
       {() => {
         return (
-          <SNavBarMobile>
+          <SNavBarMobile>              
             <SMobileBar 
               onClick={() => {
                 navigate("/leagues");
